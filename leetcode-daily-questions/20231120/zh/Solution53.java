@@ -1,4 +1,4 @@
-package ch;
+package zh;
 
 /**
  * <a href="https://leetcode.cn/problems/maximum-subarray/?envType=daily-question&envId=2023-11-20">...</a>

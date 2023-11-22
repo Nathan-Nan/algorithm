@@ -1,4 +1,4 @@
-package ch;
+package zh;
 
 /**
  * <a href="https://leetcode.cn/problems/minimum-deletions-to-make-array-beautiful/?envType=daily-question&envId=2023-11-21">...</a>
