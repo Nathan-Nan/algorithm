@@ -1,4 +1,4 @@
-package od;
+package od.online_contest;
 
 import java.util.Scanner;
 
