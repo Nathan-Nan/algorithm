@@ -58,7 +58,7 @@ public class Solution1026 {
         dfs(root.left, root, parents);
         dfs(root.right, root, parents);
     }
-    
+
     /**
      * 解法二：记录祖先节点的最大值和最小值，求最大差值
      */
