@@ -3,6 +3,7 @@ package od.online_contest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 /**
  * 题目：加密算法
@@ -50,15 +51,17 @@ import java.util.Scanner;
  * 输入: 明文"0 0 2 4",密文 "0 0 0 1 0 2 0 3"和"0 0 0 1 0 2 1 2",返回字符序小的 "0 0 0 1 0 2 0 3"
  * 输入:明文"8 2 2 3"，密文"error",密码本中无法匹配。
  * <p>
- * 通过用例：73.33%%
+ * 通过用例：73.33%
  */
 public class Question3 {
 
     private static List<int[]> offsets = new ArrayList<int[]>() {{
-        add(new int[]{-1, 0});
-        add(new int[]{1, 0});
-        add(new int[]{0, -1});
-        add(new int[]{0, 1});
+        add(new int[]{-1, 0}); // 上
+        add(new int[]{0, -1}); // 左
+        add(new int[]{0, 1}); // 右
+        add(new int[]{1, 0}); // 下
+        // add(new int[]{0, -1});
+        // add(new int[]{0, 1});
     }};
 
     public static void main(String[] args) {
@@ -88,12 +91,13 @@ public class Question3 {
             System.out.println("error");
             return;
         }
-        res.sort(String::compareTo);
-        StringBuilder ans = new StringBuilder();
-        for (char c : res.get(0).toCharArray()) {
-            ans.append(c).append(" ");
-        }
-        System.out.println(ans.toString().trim());
+        // res.sort(String::compareTo);
+        // StringBuilder ans = new StringBuilder();
+        // for (char c : res.get(0).toCharArray()) {
+        //     ans.append(c).append(" ");
+        // }
+        // System.out.println(ans.toString().trim());
+        System.out.println(res.get(0).trim());
     }
 
     private static void dfs(int[] data, int dataIdx, int[][] book, int i, int j, boolean[][] visited, List<int[]> path, List<String> res) {
@@ -115,11 +119,14 @@ public class Question3 {
 
         if (data.length == dataIdx + 1) {
             // 找到了
-            StringBuilder builder = new StringBuilder();
+            // StringBuilder builder = new StringBuilder();
+            StringJoiner joiner = new StringJoiner(" ");
             for (int[] x : path) {
-                builder.append(x[0]).append(x[1]);
+                // builder.append(x[0]).append("_").append(x[1]);
+                joiner.add(x[0] + " " + x[1]);
             }
-            res.add(builder.toString());
+            // res.add(builder.toString());
+            res.add(joiner.toString());
             path.remove(path.size() - 1);
             visited[i][j] = false;
             return;
